@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>구구단</title>
+</head>
+<body>
+<div id="section"></div>
+
+<script>
+  // 연습
+  const string = 'rachel';
+
+  const number = 5;
+
+  document.write(isNaN(string) + '<br>');
+  document.write(isNaN(number) + '<br>');
+
+  //구구단 출력
+  document.write('<h3>구구단이 출력됩니다.</h3>');
+  let i = prompt('구구단 입니다.', '1~9의 숫자를 입력해주세요');
+
+  if (i === '' || isNaN(i)) {
+    alert('올바른 값을 입력하세요.');
+  } else if (i < 1 || i > 10) {
+    alert('1부터 9까지 입력할 수 있습니다.');
+  } else {
+    for (let i = 0; i < 10; i++) {
+      document.write(i + ' * ' + i + ' = ' + i * i + '<br>');
+    }
+  }
+
+  // 숫자 더하기
+  document.write('<h3>숫자 더하기.</h3>');
+  let numA = Number(prompt('첫번째 숫자 입력해주세요'));
+  let numB = Number(prompt('두번째 숫자 입력해주세요'));
+  let sum = numA + numB;
+
+  document.write(numA + ' + ' + numB + ' = ' + sum + '입니다.');
+
+
+
+</script>
+</body>
+</html>

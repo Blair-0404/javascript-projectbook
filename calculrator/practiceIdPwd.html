@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>form 객체</title>
+  <style>
+    label {
+      float: left;
+      width: 80px;
+    }
+
+    input, label {
+      display: block;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+<!--연습 1-->
+<form name="frm">
+  <label for="myId">ID: </label>
+  <input type="text" id="myId" name="myId"/>
+  <label for="pwd">password: </label>
+  <input type="password" id="pwd" name="pwd"/>
+
+  <input type="button" value="로그인" id="send" name="send"/>
+  <!--  <button id="send" onclick="callback()">로그인</button>-->
+</form>
+
+<!--연습2-->
+<form name="form">
+  <input type="text" name="text"/>
+
+  <input type="button" onclick="put_text()" value="click"/>
+</form>
+
+<!--연습3 this 객체 -->
+<ul id="gnb">
+  <li>click</li>
+  <li>second</li>
+  <li>third</li>
+</ul>
+
+<script>
+  // 연습1
+  const frm = document.frm;
+  const myIdInput = frm.myId;
+  const pwdInput = frm.pwd;
+  let sendBtn = document.frm.send;
+
+  sendBtn.onclick = function () {
+    let newId = myIdInput.value;
+    let newPwd = pwdInput.value;
+
+    if (newId === '' || newPwd === '') {
+      alert('아이디 또는 비밀번호가 입력되지 않았습니다.!');
+    } else {
+      alert(myIdInput.value + '님 환영합니다.');
+    }
+  };
+
+  // function callback() {
+  //   let newId = myIdInput.value;
+  //   let newPwd = pwdInput.value;
+  //
+  //   if(newId === '' || newPwd === '') {
+  //     alert('아이디 또는 비밀번호가 입력되지 않았습니다.!');
+  //   } else {
+  //     alert(myIdInput.value + '님 환영합니다.');
+  //   }
+  // }
+
+  // 연습2
+  function put_text() {
+    const form = document.forms['form']['text'];
+
+    // if(form.value === '') {
+    //   alert('값을 입력해 주세요');
+    // }
+    form.value = '값을 입력';
+  }
+
+  // 연습3
+  const gnb = document.getElementById('gnb');
+  const li = gnb.getElementsByTagName('li');
+
+
+    // for (let i = 0; i < li.length; i++) {
+      li[0].onclick = function() {
+      this.style.backgroundColor = 'red';
+      };
+    // }
+</script>
+
+</body>
+</html>
